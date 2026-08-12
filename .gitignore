@@ -1,0 +1,25 @@
+target/
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+*.class
+*.log
+.DS_Store
+Thumbs.db
+
+# Local env / secrets
+.env
+.env.*
+
+# FitCSVTool dumps (keep the .fit files, ignore generated csv next to them)
+sample-data/*.csv
+sample-data/*_data.csv
+sample-data/*_data.xlsx
+
+# Don't commit huge personal dumps if you expand sample-data locally
+sample-data/personal/
