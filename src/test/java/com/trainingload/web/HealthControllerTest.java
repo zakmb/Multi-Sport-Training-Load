@@ -12,13 +12,14 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class HealthControllerTest {
-
+class HealthControllerTest 
+{
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void healthReturnsOk() throws Exception {
+    void healthReturnsOk() throws Exception
+    {
         mockMvc.perform(get("/health"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("ok"));
