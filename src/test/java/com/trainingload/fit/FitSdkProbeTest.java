@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class FitSdkProbeTest {
-
+class FitSdkProbeTest 
+{
     @Test
-    void fitSdkIsOnClasspath() {
+    void fitSdkIsOnClasspath()
+    {
         String marker = FitSdkProbe.sdkMarker();
         assertTrue(marker.startsWith("fit-sdk-ok"), () -> "unexpected marker: " + marker);
     }

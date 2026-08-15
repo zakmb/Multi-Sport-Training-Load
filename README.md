@@ -55,11 +55,18 @@ TSB_today = CTL_yesterday − ATL_yesterday                       # form
 Initial development will look into aerobic sport values, this will allow me to compare to what Coros states my values are and ensure these are very similar
 
 ## Run it
-
 ```bash
 mvn spring-boot:run
-# then: curl http://localhost:8080/health
 ```
+
+# parse + persist everything in sample-data/
+curl -u admin:changeme -X POST http://localhost:8080/sessions/ingest
+
+# list what landed in the DB
+curl -u admin:changeme http://localhost:8080/sessions
+```
+
+Then open http://localhost:8080/h2-console — JDBC URL `jdbc:h2:file:./data/trainingload`, user `sa`, password same as `TRAININGLOAD_DB_PASSWORD` (default `changeme`).
 
 ```bash
 mvn test
@@ -70,6 +77,10 @@ Peek at a FIT file:
 ```bash
 java -jar tools/FitCSVTool.jar sample-data/sample_run.fit
 ```
+
+## Status
+Phase 0 — Spring Boot + FIT SDK + design note  
+Phase 1 — FIT ingest → `SessionSummary` in H2 (`FitFileParser`, `/sessions/ingest`)
 
 ## Sources I'm working from
 
